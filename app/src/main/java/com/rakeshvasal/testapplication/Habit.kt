@@ -5,4 +5,4 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 
 @Entity(tableName = "HabitTable")
-data class Habit(@PrimaryKey @ColumnInfo(name = "habit") val mHabit: String)
+data class Habit(@PrimaryKey @ColumnInfo(name = "habit") var mHabit: String="")

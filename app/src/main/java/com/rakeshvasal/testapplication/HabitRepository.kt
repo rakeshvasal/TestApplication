@@ -12,7 +12,7 @@ class HabitRepository(application: Application) {
     init {
         val habitRoomDatabase = RoomDBClass.getDatabaseObject(application)
         habitDao = habitRoomDatabase?.habitDao!!
-        listLiveData = this.habitDao?.getAllHabits()
+        listLiveData = habitDao?.getAllHabits()
     }
 
 
