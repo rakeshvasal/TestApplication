@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication
+package com.rakeshvasal.testapplication.Kotlin
 
 import android.arch.persistence.db.SupportSQLiteDatabase
 import android.arch.persistence.room.Database
@@ -6,12 +6,11 @@ import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
 import android.os.AsyncTask
-import java.util.*
 
 @Database(entities = [Habit::class], version = 1)
 abstract class RoomDBClass : RoomDatabase() {
 
-    abstract var habitDao: HabitDao
+    abstract fun habitDao(): HabitDao
 
     companion object {
         var Instance: RoomDBClass? = null
@@ -20,7 +19,9 @@ abstract class RoomDBClass : RoomDatabase() {
 
             if (Instance == null) {
                 synchronized(RoomDBClass::class) {
-                    Instance = Room.databaseBuilder(context.applicationContext, RoomDBClass::class.java, "RoomDb").build()
+                    Instance = Room.databaseBuilder(context.applicationContext, RoomDBClass::class.java, "RoomDb")
+                            .addCallback(mRoomDataBaseCallback)
+                            .build()
                 }
             }
             return Instance
@@ -44,7 +45,7 @@ abstract class RoomDBClass : RoomDatabase() {
             var daoObj: HabitDao? = null
 
             init {
-                daoObj = roomDbObj?.habitDao
+                daoObj = obj?.habitDao()
             }
 
             override fun doInBackground(vararg p0: Void?): Void? {

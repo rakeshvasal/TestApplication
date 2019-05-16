@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication
+package com.rakeshvasal.testapplication.Kotlin
 
 import android.content.Context
 import android.support.v7.widget.RecyclerView
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import com.rakeshvasal.testapplication.R
 
 class HabitListAdapter internal constructor(context: Context) : RecyclerView.Adapter<HabitListAdapter.HabitViewHolder>() {
     private val mInflater: LayoutInflater
@@ -37,6 +38,11 @@ class HabitListAdapter internal constructor(context: Context) : RecyclerView.Ada
         } else {
             holder.hbtextView.text = "No Word"
         }
+    }
+
+    internal fun setWords(habitsList: List<Habit>) {
+        this.habitsList = habitsList
+        notifyDataSetChanged()
     }
 
 

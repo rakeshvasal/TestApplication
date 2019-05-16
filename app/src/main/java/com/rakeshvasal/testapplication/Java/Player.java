@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication;
+package com.rakeshvasal.testapplication.Java;
 
 public class Player {
     public String Position;

@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication;
+package com.rakeshvasal.testapplication.Java;
 
 import com.google.gson.annotations.SerializedName;
 

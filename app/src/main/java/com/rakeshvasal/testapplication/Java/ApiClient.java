@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication;
+package com.rakeshvasal.testapplication.Java;
 
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;

@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication;
+package com.rakeshvasal.testapplication.Java;
 
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.google.gson.JsonObject;
 import com.google.gson.internal.LinkedTreeMap;
+import com.rakeshvasal.testapplication.R;
 
 import org.json.JSONArray;
 import org.json.JSONException;

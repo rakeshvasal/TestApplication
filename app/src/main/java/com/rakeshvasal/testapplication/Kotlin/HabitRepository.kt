@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication
+package com.rakeshvasal.testapplication.Kotlin
 
 import android.app.Application
 import android.arch.lifecycle.LiveData
@@ -11,7 +11,7 @@ class HabitRepository(application: Application) {
 
     init {
         val habitRoomDatabase = RoomDBClass.getDatabaseObject(application)
-        habitDao = habitRoomDatabase?.habitDao!!
+        habitDao = habitRoomDatabase?.habitDao()!!
         listLiveData = habitDao?.getAllHabits()
     }
 
@@ -21,10 +21,10 @@ class HabitRepository(application: Application) {
     }
 
     fun insert(word: Habit) {
-        insertAsyncTask(habitDao).execute(word)
+        InsertAsyncTask(habitDao).execute(word)
     }
 
-    private class insertAsyncTask internal constructor(private val mAsyncTaskDao: HabitDao) : AsyncTask<Habit, Void, Void>() {
+    private class InsertAsyncTask internal constructor(private val mAsyncTaskDao: HabitDao) : AsyncTask<Habit, Void, Void>() {
 
         override fun doInBackground(vararg params: Habit): Void? {
             mAsyncTaskDao.insertHabit(params[0])

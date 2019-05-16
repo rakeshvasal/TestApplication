@@ -1,4 +1,4 @@
-package com.rakeshvasal.testapplication
+package com.rakeshvasal.testapplication.Kotlin
 
 import android.app.Application
 import android.arch.lifecycle.AndroidViewModel
